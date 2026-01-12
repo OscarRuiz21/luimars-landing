@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios de Atención | Luimar's</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --luimars-red: #E62429;
+            --text-white: #ffffff;
+            --text-gray: #b3b3b3;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Botón de regresar (Igual que en Menús) */
+        .header-nav {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: #999;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .back-btn:hover { color: var(--luimars-red); }
+
+        /* Tarjeta de Horario */
+        .schedule-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #333;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Borde superior rojo estético */
+        .schedule-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%;
+            height: 5px;
+            background: var(--luimars-red);
+        }
+
+        .icon-clock {
+            font-size: 3rem;
+            color: var(--luimars-red);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        /* Lista de días */
+        .schedule-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .schedule-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+            font-size: 1rem;
+        }
+
+        .schedule-row:last-child {
+            border-bottom: none;
+        }
+
+        .day-name {
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .day-time {
+            color: var(--text-gray);
+            font-weight: 300;
+        }
+
+        /* Resaltar días con horario extendido */
+        .extended {
+            color: #fff;
+            font-weight: 500;
+        }
+        
+        .note {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header-nav">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Volver al Inicio
+        </a>
+    </div>
+
+    <div class="schedule-card">
+        <i class="far fa-clock icon-clock"></i>
+        <h1>Horario de Servicio</h1>
+        <p class="subtitle">Te esperamos para desayunar, comer o cenar.</p>
+
+        <ul class="schedule-list">
+            <li class="schedule-row">
+                <span class="day-name">Lunes</span>
+                <span class="day-time">8:30 a.m. - 6:00 p.m.</span>
+            </li>
+            <li class="schedule-row">
+                <span class="day-name">Martes</span>
+                <span class="day-time">8:30 a.m. - 6:00 p.m.</span>
+            </li>
+            <li class="schedule-row">
+                <span class="day-name">Miércoles</span>
+                <span class="day-time">8:30 a.m. - 6:00 p.m.</span>
+            </li>
+            
+            <li class="schedule-row">
+                <span class="day-name" style="color: var(--luimars-red);">Jueves</span>
+                <span class="day-time extended">8:30 a.m. - 9:00 p.m.</span>
+            </li>
+            <li class="schedule-row">
+                <span class="day-name" style="color: var(--luimars-red);">Viernes</span>
+                <span class="day-time extended">8:30 a.m. - 9:00 p.m.</span>
+            </li>
+            <li class="schedule-row">
+                <span class="day-name" style="color: var(--luimars-red);">Sábado</span>
+                <span class="day-time extended">8:30 a.m. - 9:00 p.m.</span>
+            </li>
+
+            <li class="schedule-row">
+                <span class="day-name">Domingo</span>
+                <span class="day-time">8:30 a.m. - 6:00 p.m.</span>
+            </li>
+        </ul>
+
+        <p class="note">*El horario puede variar en días festivos.</p>
+    </div>
+
+</body>
+</html>
