@@ -233,11 +233,72 @@
             border-top: 2px solid var(--gold-primary);
         }
 
+        /* --- ESTILOS RESPONSIVOS (MOBILE) --- */
         @media (max-width: 768px) {
-            .nav-menu { display: none; }
-            .hero h1 { font-size: 3rem; }
-            .luimars-content { flex-direction: column; text-align: center; }
-            .luimars-text { padding-right: 0; margin-bottom: 2rem; }
+            
+            /* 1. Botón Hamburguesa */
+            .menu-toggle {
+                display: block; /* Aparece solo en celular */
+                font-size: 1.8rem;
+                cursor: pointer;
+                color: var(--luimars-red); /* O usa var(--gold-primary) en la panadería */
+            }
+
+            /* 2. Menú Desplegable */
+            .nav-menu {
+                display: none; /* Oculto por defecto */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 15, 15, 0.98);
+                flex-direction: column;
+                padding: 2rem 0;
+                border-bottom: 2px solid var(--luimars-red);
+                text-align: center;
+            }
+
+            .nav-menu.active {
+                display: flex; /* Se muestra al dar clic */
+            }
+
+            .nav-menu a {
+                margin: 1rem 0;
+                font-size: 1.2rem; /* Letra más grande para tocar con el dedo */
+                display: block;
+            }
+
+            /* 3. Ajustes de Texto y Espacios */
+            .hero h1 { font-size: 2.5rem; } /* Título más chico */
+            .hero p { font-size: 1rem; padding: 0 20px; }
+            
+            /* Sección Crossover (Panadería/Restaurante abajo) */
+            .bakery-section, .luimars-section { flex-direction: column-reverse; }
+            .bakery-info, .luimars-text { 
+                padding: 3rem 1.5rem; 
+                text-align: center; 
+                border-left: none; 
+                border-top: 5px solid var(--disofia-gold); /* O var(--luimars-red) */
+            }
+            
+            /* Botones y secciones */
+            .btn-gold, .btn-red-outline { margin: 2rem auto 0; }
+            .section-title h2 { font-size: 2rem; }
+            .menu-section, .products-section { padding: 3rem 5%; } /* Menos relleno */
+            
+            /* Delivery en columna */
+            .delivery-container { flex-direction: column; gap: 2rem; }
+            .pickup-box { padding: 2rem 1.5rem; }
+        }
+
+        /* Ocultar botón hamburguesa en computadora */
+        .menu-toggle { display: none; }
+
+        /* Regla de oro para imágenes responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
     </style>
 </head>
@@ -247,6 +308,10 @@
         <a href="#">
             <img src="../img/disofia-logo.png" alt="Di Sofia Logo" class="logo-img">
         </a>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
 
         <nav class="nav-menu">
             <a href="#">Inicio</a>
@@ -532,5 +597,15 @@
             background-color: #1ebd59;
         }
     </style>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+
 </body>
 </html>

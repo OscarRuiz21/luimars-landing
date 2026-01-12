@@ -193,13 +193,26 @@
             gap: 2rem;
         }
         .food-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid #222;
+            width: 90%; /* Ajusta el ancho */
+            max-width: 300px; /* Tamaño máximo */
+            height: 400px; /* Altura fija para uniformidad */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Espaciado interno */
         }
-        .food-img { height: 250px; background-size: cover; background-position: center; }
-        .food-info { padding: 1.5rem; }
+        .food-img {
+            height: 60%; /* Imagen ocupa el 60% de la tarjeta */
+            background-size: cover;
+            background-position: center;
+        }
+        .food-info {
+            height: 40%; /* Información ocupa el 40% restante */
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
 
         /* --- FOOTER --- */
         footer {
@@ -210,14 +223,78 @@
         }
 
         /* MOBILE */
+        /* --- ESTILOS RESPONSIVOS (MOBILE) --- */
         @media (max-width: 768px) {
-            .nav-menu { display: none; } /* En producción necesitarás un script para menú móvil */
-            .hero h1 { font-size: 2.5rem; }
-            .bakery-section { flex-direction: column-reverse; } /* Imagen arriba en móvil */
-            .bakery-info { padding: 3rem 2rem; text-align: center; border-left: none; border-top: 5px solid var(--disofia-gold); }
-            .btn-gold { margin: 2rem auto 0; }
+            
+            /* 1. Botón Hamburguesa */
+            .menu-toggle {
+                display: block; /* Aparece solo en celular */
+                font-size: 1.8rem;
+                cursor: pointer;
+                color: var(--luimars-red); /* O usa var(--gold-primary) en la panadería */
+            }
+
+            /* 2. Menú Desplegable */
+            .nav-menu {
+                display: none; /* Oculto por defecto */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 15, 15, 0.98);
+                flex-direction: column;
+                padding: 2rem 0;
+                border-bottom: 2px solid var(--luimars-red);
+                text-align: center;
+            }
+
+            .nav-menu.active {
+                display: flex; /* Se muestra al dar clic */
+            }
+
+            .nav-menu a {
+                margin: 1rem 0;
+                font-size: 1.2rem; /* Letra más grande para tocar con el dedo */
+                display: block;
+            }
+
+            /* 3. Ajustes de Texto y Espacios */
+            .hero h1 { font-size: 2.5rem; } /* Título más chico */
+            .hero p { font-size: 1rem; padding: 0 20px; }
+            
+            /* Sección Crossover (Panadería/Restaurante abajo) */
+            .bakery-section, .luimars-section { flex-direction: column-reverse; }
+            .bakery-info, .luimars-text { 
+                padding: 3rem 1.5rem; 
+                text-align: center; 
+                border-left: none; 
+                border-top: 5px solid var(--disofia-gold); /* O var(--luimars-red) */
+            }
+            
+            /* Botones y secciones */
+            .btn-gold, .btn-red-outline { margin: 2rem auto 0; }
+            .section-title h2 { font-size: 2rem; }
+            .menu-section, .products-section { padding: 3rem 5%; } /* Menos relleno */
+            
+            /* Delivery en columna */
+            .delivery-container { flex-direction: column; gap: 2rem; }
+            .pickup-box { padding: 2rem 1.5rem; }
         }
+
+        /* Ocultar botón hamburguesa en computadora */
+        .menu-toggle { display: none; }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
     </style>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
 
@@ -225,6 +302,10 @@
         <a href="#">
             <img src="../img/logo-luimars.png" alt="Luimar's Restaurante Logo" class="logo-img">
         </a>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
 
         <nav class="nav-menu">
             <a href="#">Inicio</a>
@@ -265,50 +346,65 @@
         </div>
     </section>
 
-<section class="menu-section" id="menu">
+    <section class="menu-section" id="menu">
         <div class="section-title">
             <h2>Nuestros <span>Favoritos</span></h2>
             <p style="color: #999;">Lo más pedido en Luimar's Restaurante</p>
         </div>
 
-        <div class="menu-grid">
-            
-            <div class="food-card">
-                <div class="food-img" style="background-image: url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="food-info">
-                    <span class="food-cat">Barra Japonesa</span>
-                    <h3 class="food-title">Sushi Inigualable</h3>
-                    <p class="food-desc">Rollos frescos preparados al momento. La especialidad que nos distingue.</p>
+        <!-- Swiper Container -->
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="food-card">
+                        <div class="food-img" style="background-image: url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                        <div class="food-info">
+                            <span class="food-cat">Barra Japonesa</span>
+                            <h3 class="food-title">Sushi Inigualable</h3>
+                            <p class="food-desc">Rollos frescos preparados al momento. La especialidad que nos distingue.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="food-card">
+                        <div class="food-img" style="background-image: url('../img/Cecinaa.jpg');"></div>
+                        <div class="food-info">
+                            <span class="food-cat">Cortes & Grill</span>
+                            <h3 class="food-title">Arrachera Premium</h3>
+                            <p class="food-desc">Jugosos cortes de carne seleccionada acompañados de guarniciones clásicas.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="food-card">
+                        <div class="food-img" style="background-image: url('../img/Hamburguesaa.jpg');"></div>
+                        <div class="food-info">
+                            <span class="food-cat">Luimars Burgers</span>
+                            <h3 class="food-title">Hamburguesas que Impactan</h3>
+                            <p class="food-desc">Carne de res 100%, queso fundido y pan artesanal. Tienes que probarlas.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="swiper-slide">
+                    <div class="food-card">
+                        <div class="food-img" style="background-image: url('../img/pulpo.jpg');"></div>
+                        <div class="food-info">
+                            <span class="food-cat">Tradición</span>
+                            <h3 class="food-title">Enmoladas & Desayunos</h3>
+                            <p class="food-desc">La mejor forma de empezar el día con el sazón de casa.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="food-card">
-                <div class="food-img" style="background-image: url('../img/Cecinaa.jpg');"></div>
-                <div class="food-info">
-                    <span class="food-cat">Cortes & Grill</span>
-                    <h3 class="food-title">Arrachera Premium</h3>
-                    <p class="food-desc">Jugosos cortes de carne seleccionada acompañados de guarniciones clásicas.</p>
-                </div>
-            </div>
-
-            <div class="food-card">
-                <div class="food-img" style="background-image: url('../img/Hamburguesaa.jpg');"></div>
-                <div class="food-info">
-                    <span class="food-cat">Luimars Burgers</span>
-                    <h3 class="food-title">Hamburguesas que Impactan</h3>
-                    <p class="food-desc">Carne de res 100%, queso fundido y pan artesanal. Tienes que probarlas.</p>
-                </div>
-            </div>
-
-            <div class="food-card">
-                <div class="food-img" style="background-image: url('../img/pulpo.jpg');"></div>
-                <div class="food-info">
-                    <span class="food-cat">Tradición</span>
-                    <h3 class="food-title">Enmoladas & Desayunos</h3>
-                    <p class="food-desc">La mejor forma de empezar el día con el sazón de casa.</p>
-                </div>
-            </div>
-
+            <!-- Swiper Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Swiper Navigation -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
     </section>
 
@@ -362,6 +458,79 @@
             transition: 0.3s;
         }
         .btn-whatsapp-large:hover { transform: scale(1.05); background: #1ebd59; }
+
+        /* Swiper Styles  Carrusel*/
+        .swiper {
+            width: 100%;
+            padding: 2rem 0;
+        }
+
+        .swiper-slide:hover .food-card {
+            transform: scale(1.05); /* Agranda la tarjeta al 105% */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Agrega una sombra para resaltar */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+        }
+
+        /* Transición inicial */
+        .food-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+
+        .food-card {
+            width: 90%; /* Ajusta el ancho */
+            max-width: 300px; /* Tamaño máximo */
+            height: 400px; /* Altura fija para uniformidad */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Espaciado interno */
+        }
+        .food-img {
+            height: 60%; /* Imagen ocupa el 60% de la tarjeta */
+            background-size: cover;
+            background-position: center;
+        }
+        .food-info {
+            height: 40%; /* Información ocupa el 40% restante */
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Cambiar el color de las flechas */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--luimars-red); /* Rojo de tu página */
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            color: #fff; /* Cambia a blanco al pasar el cursor */
+            transform: scale(1.2); /* Efecto de zoom */
+        }
+
+        /* Cambiar el color de los puntos de paginación */
+        .swiper-pagination-bullet {
+            background: var(--luimars-red); /* Rojo de tu página */
+            opacity: 0.6; /* Transparencia inicial */
+            transition: opacity 0.3s;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #fff; /* Blanco para el punto activo */
+            opacity: 1; /* Sin transparencia */
+        }
+
+        .swiper-button-next {
+            right: 5px; /* Más cerca del carrusel */
+        }
+
+        .swiper-button-prev {
+            left: 5px; /* Más cerca del carrusel */
+        }
 
         /* --- COLUMNA APPS --- */
         .apps-box {
@@ -637,6 +806,40 @@
             animation: pulse-green 2s infinite;
         }
     </style>
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
 </body>
+
+<script>
+    const swiper = new Swiper('.swiper', {
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        slidesPerView: 1,
+        spaceBetween: 10, // Reduce el espacio entre tarjetas
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 15, // Espacio reducido en pantallas medianas
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 20, // Espacio reducido en pantallas grandes
+            },
+        },
+    });
+</script>
 
 </html>
