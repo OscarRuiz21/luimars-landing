@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Di'Sofía | Panadería Artesanal & Repostería</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- PALETA DE COLORES DI'SOFÍA --- */
+        :root {
+            --bg-color: #0f0f0f;      
+            --card-bg: #161616;       
+            
+            /* ACENTO PRINCIPAL (DORADO/BEIGE DE LA PANADERÍA) */
+            --gold-primary: #D4AF37;     
+            --gold-light: #F4E5BC;
+
+            /* ACENTO CROSSOVER (ROJO LUIMAR'S) */
+            --luimars-red: #E62429;  
+            
+            --text-white: #ffffff;
+            --text-gray: #b3b3b3;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        a { text-decoration: none; transition: 0.3s; color: inherit; }
+
+        /* --- HEADER --- */
+        header {
+            background: rgba(15, 15, 15, 0.98);
+            padding: 0.8rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--gold-primary); /* Línea Dorada */
+        }
+
+        .logo-img {
+            width: 170px; /* Ajusta el ancho */
+            height: auto; /* Mantiene la proporción */
+        }
+
+        .nav-menu { display: flex; gap: 2rem; align-items: center; }
+        .nav-menu a { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: #fff; letter-spacing: 1px; }
+        .nav-menu a:hover { color: var(--gold-primary); }
+        
+        /* Botón especial para volver al Restaurante */
+        .btn-nav-red {
+            border: 1px solid var(--luimars-red);
+            padding: 8px 20px;
+            color: var(--luimars-red) !important;
+            border-radius: 20px;
+        }
+        .btn-nav-red:hover { background: var(--luimars-red); color: #fff !important; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 85vh;
+            /* Foto de Panadería/Masas */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(15,15,15,1)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            margin-top: 60px;
+        }
+
+        .hero h1 { font-size: 4rem; margin-bottom: 0.5rem; line-height: 1.1; color: var(--gold-light); }
+        .hero p { font-size: 1.3rem; color: #ddd; margin-bottom: 2rem; font-style: italic; }
+        
+        .btn-gold {
+            padding: 15px 45px;
+            background: var(--gold-primary);
+            color: #000;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        .btn-gold:hover { transform: scale(1.05); background: #fff; }
+
+        /* --- HIGHLIGHTS BAR (Estilo Instagram - Dorado) --- */
+        .highlights-bar {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            background: #121212;
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .highlight-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; width: 80px; }
+        .highlight-circle {
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            background: #222; /* Fondo oscuro */
+            border: 1px solid var(--gold-primary);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; color: var(--gold-primary);
+            margin-bottom: 10px;
+            box-shadow: 0 0 0 2px #222, 0 0 0 4px var(--gold-primary); /* Doble borde dorado */
+            transition: 0.3s;
+        }
+        .highlight-item:hover .highlight-circle { transform: scale(1.1); background: var(--gold-primary); color: #000; }
+        .highlight-text { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--gold-light); }
+
+        /* --- PRODUCT GRID --- */
+        .products-section { padding: 5rem 5%; }
+        .section-title { text-align: center; margin-bottom: 4rem; }
+        .section-title h2 { font-size: 3rem; color: var(--gold-primary); margin-bottom: 10px; }
+        .section-title p { color: #888; max-width: 600px; margin: 0 auto; }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+        .product-card:hover { border-color: var(--gold-primary); transform: translateY(-5px); }
+        
+        .product-img {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+        .product-info { padding: 1.5rem; text-align: center; }
+        .product-cat { color: var(--gold-primary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; display: block;}
+        .product-name { font-size: 1.3rem; margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+
+        /* --- SECCIÓN LUIMAR'S (CROSSOVER ROJO) --- */
+        .luimars-section {
+            background: #000;
+            border-top: 1px solid #333;
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Fondo decorativo con opacidad */
+        .luimars-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2; /* Muy sutil */
+            z-index: 1;
+        }
+
+        .luimars-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 4rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .luimars-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 2rem;
+        }
+
+        .luimars-visual {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* Simulación del Logo Luimars en Texto si no hay imagen, o contenedor para la imagen */
+        .luimars-brand {
+            font-size: 4rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            line-height: 1;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        .luimars-brand span { color: var(--luimars-red); }
+
+        .btn-red-outline {
+            padding: 12px 35px;
+            background: transparent;
+            color: var(--luimars-red);
+            border: 2px solid var(--luimars-red);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2rem;
+            display: inline-block;
+        }
+        .btn-red-outline:hover { background: var(--luimars-red); color: #fff; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #080808;
+            padding: 4rem 5%;
+            text-align: center;
+            border-top: 2px solid var(--gold-primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .hero h1 { font-size: 3rem; }
+            .luimars-content { flex-direction: column; text-align: center; }
+            .luimars-text { padding-right: 0; margin-bottom: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#">
+            <img src="img/disofia-logo.png" alt="Di Sofia Logo" class="logo-img">
+        </a>
+
+        <nav class="nav-menu">
+            <a href="#">Inicio</a>
+            <a href="#productos">Panadería</a>
+            <a href="#temporada">Temporada</a>
+            <a href="index2.html" class="btn-nav-red">Ir a Luimar's</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Di'Sofía</h1>
+        <p>"De nuestro horno a tus manos"</p>
+        <a href="#productos" class="btn-gold">Ver Pan Fresco</a>
+    </section>
+
+    <section class="highlights-bar">
+        <div class="highlight-item">
+            <div class="highlight-circle"><i class="fas fa-bread-slice"></i></div>
+            <span class="highlight-text">Pan Dulce</span>
+        </div>
+        <div class="highlight-item">
+            <div class="highlight-circle"><i class="fas fa-cookie-bite"></i></div>
+            <span class="highlight-text">Galletas</span>
+        </div>
+        <div class="highlight-item">
+            <div class="highlight-circle"><i class="fas fa-birthday-cake"></i></div>
+            <span class="highlight-text">Pasteles</span>
+        </div>
+        <div class="highlight-item">
+            <div class="highlight-circle"><i class="fas fa-store-alt"></i></div>
+            <span class="highlight-text">Sucursales</span>
+        </div>
+    </section>
+
+    <section class="products-section" id="productos">
+        <div class="section-title">
+            <h2>Nuestra Vitrina</h2>
+            <p>Hechos diariamente con mantequilla 100% natural e ingredientes selectos.</p>
+        </div>
+
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1609189708027-664426e2e542?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="product-info">
+                    <span class="product-cat">Temporada</span>
+                    <h3 class="product-name">Roscas de Reyes</h3>
+                    <p style="color:#888; font-size:0.9rem;">La tradición favorita. Rellena de queso, nuez o natural.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1555507036-ab1f40388085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="product-info">
+                    <span class="product-cat">Hojaldre</span>
+                    <h3 class="product-name">Croissant Artesanal</h3>
+                    <p style="color:#888; font-size:0.9rem;">Crujiente por fuera, suave por dentro. Perfecto para acompañar tu café.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1499636138143-bd649043ea80?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="product-info">
+                    <span class="product-cat">Repostería</span>
+                    <h3 class="product-name">Galletas & Brownies</h3>
+                    <p style="color:#888; font-size:0.9rem;">Variedad de chocolates, chips y frutos secos.</p>
+                </div>
+            </div>
+
+             <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="product-info">
+                    <span class="product-cat">Hogaza</span>
+                    <h3 class="product-name">Pan de Masa Madre</h3>
+                    <p style="color:#888; font-size:0.9rem;">Fermentación natural. El compañero ideal para tus comidas.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section style="background-color: #1a1a1a; padding: 80px 5%; display: flex; flex-wrap: wrap; align-items: center; border-bottom: 1px solid #333;">
+        
+        <div style="flex: 1; min-width: 300px; padding-right: 40px; margin-bottom: 30px;">
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--gold-primary); font-size: 2.8rem; line-height: 1.2; margin-bottom: 20px;">
+                Llevamos el sabor a tu evento
+            </h2>
+            <p style="color: #ccc; font-size: 1.1rem; margin-bottom: 20px;">
+                ¿Coffee Break para la oficina o Mesa de Postres para tu boda?
+            </p>
+            <ul style="color: #999; margin-bottom: 30px; list-style: none;">
+                <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--gold-primary); margin-right: 10px;"></i> Pasteles Personalizados</li>
+                <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--gold-primary); margin-right: 10px;"></i> Charolas de Pan Mini</li>
+                <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--gold-primary); margin-right: 10px;"></i> Box Lunch Corporativo</li>
+            </ul>
+            
+            <a href="https://wa.me/5534938396?text=Hola%20DiSofia,%20me%20interesa%20una%20cotización%20para%20evento." class="btn-gold">
+                Solicitar Catálogo de Eventos
+            </a>
+        </div>
+
+        <div style="flex: 1; min-width: 300px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+            <div style="height: 200px; background: url('https://images.unsplash.com/photo-1557308536-ee471ef2c39a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80') center/cover; border-radius: 10px;"></div>
+            <div style="height: 200px; background: url('https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80') center/cover; border-radius: 10px; margin-top: 30px;"></div>
+        </div>
+
+    </section>
+    <section style="padding: 60px 5%; background-color: var(--bg-color); border-bottom: 1px solid #222;">
+        
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold-primary); font-size: 2.5rem;">
+                Comunidad Di'Sofía
+            </h2>
+            <div style="width: 60px; height: 2px; background: var(--gold-primary); margin: 10px auto;"></div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; align-items: center;">
+            
+            <div style="text-align: center; border-right: 1px solid #222; padding-right: 20px;" class="col-left">
+                <p style="color: var(--text-gray); letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 20px;">
+                    Lo que dicen nuestros clientes
+                </p>
+
+                <div style="background: var(--card-bg); padding: 30px; border: 1px solid #333; position: relative; border-radius: 4px; margin-bottom: 25px;">
+                    <i class="fas fa-quote-left" style="position: absolute; top: -15px; left: 20px; font-size: 2rem; color: var(--bg-color); text-shadow: 0 2px 0 var(--gold-primary);"></i>
+                    
+                    <div style="color: var(--gold-primary); font-size: 1rem; margin-bottom: 10px;">★★★★★</div>
+                    <p style="color: #ddd; font-style: italic; font-size: 1rem; line-height: 1.6;">
+                        "El pan de dulce es adictivo. Definitivamente la mejor panadería de la zona."
+                    </p>
+                    <p style="font-weight: 700; color: var(--gold-light); font-size: 0.75rem; text-transform: uppercase; margin-top: 15px;">
+                        - Reseña en Google
+                    </p>
+                </div>
+
+                <a href="TU_LINK_DE_GOOGLE_AQUI" target="_blank" style="font-size: 0.9rem; color: var(--gold-primary); text-decoration: none; border-bottom: 1px solid var(--gold-primary); padding-bottom: 2px; transition:0.3s;">
+                    Leer más o Escribir Reseña &rarr;
+                </a>
+            </div>
+
+            <div style="text-align: center;">
+                <div style="width: 80px; height: 80px; border: 1px solid var(--gold-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; font-size: 2rem; color: var(--gold-primary);">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                
+                <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 10px;">Endulza tu Feed</h3>
+                <p style="color: var(--text-gray); margin-bottom: 25px; font-size: 0.95rem; line-height: 1.6;">
+                    Síguenos para enterarte en tiempo real cuando salen las conchas calientes del horno.
+                </p>
+                
+                <a href="TU_LINK_INSTAGRAM" style="display: inline-block; border: 1px solid #fff; color: #fff; padding: 10px 30px; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; transition: 0.3s; border-radius: 50px;">
+                    Seguir @DiSofiaPanaderia
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <style>
+        @media (max-width: 768px) {
+            .col-left {
+                border-right: none !important;
+                border-bottom: 1px solid #222;
+                padding-right: 0 !important;
+                padding-bottom: 40px;
+            }
+        }
+    </style>
+
+    <section style="padding: 80px 20px; background-color: var(--bg-color); text-align: center;">
+        <div style="max-width: 700px; margin: 0 auto; border: 1px solid var(--gold-primary); padding: 50px 30px; position: relative; background: linear-gradient(to bottom, #111, #0a0a0a);">
+            
+            <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: var(--bg-color); padding: 0 15px;">
+                <i class="fas fa-gift" style="font-size: 2rem; color: var(--gold-primary);"></i>
+            </div>
+
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 15px; color: var(--gold-light);">
+                ¿Nos ayudas a mejorar?
+            </h3>
+            <p style="font-size: 1rem; color: #ccc; margin-bottom: 30px; line-height: 1.8;">
+                Cuéntanos tu experiencia en una breve encuesta.<br>
+                Podrás participar para ganar una <strong style="color: var(--gold-primary);">Caja Sorpresa Semanal</strong>.
+            </p>
+            
+            <a href="LINK_A_TU_ENCUESTA" class="btn-gold" style="display: inline-block; text-decoration: none; border: none; font-size: 0.9rem;">
+                Participar en el Sorteo
+            </a>
+        </div>
+    </section>
+
+    <section class="luimars-section">
+        <div class="luimars-bg"></div> <div class="luimars-content">
+            <div class="luimars-text">
+                <span style="color: #fff; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">¿Hambre de algo más fuerte?</span>
+                <div class="luimars-brand">LuiMar<span>'s</span></div>
+                
+                <h3 style="color: #ccc; font-size: 1.5rem; margin-bottom: 20px;">Restaurante & Sushi Bar</h3>
+                <p style="color: #999; max-width: 500px;">
+                    Cruza la calle y disfruta de nuestros famosos desayunos, cortes de carne premium y la mejor barra de sushi de Satélite.
+                </p>
+                
+                <a href="index.html" class="btn-red-outline">
+                    Ir al Restaurante <i class="fas fa-utensils" style="margin-left: 10px;"></i>
+                </a>
+            </div>
+            
+            <div class="luimars-visual">
+                <i class="fas fa-pepper-hot" style="font-size: 10rem; color: var(--luimars-red); opacity: 0.8;"></i>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #080808; padding: 4rem 5%; text-align: center; border-top: 2px solid var(--gold-primary);">
+        
+        <h3 style="color: var(--gold-primary); margin-bottom: 30px; font-size: 1.8rem; letter-spacing: 2px;">DI'SOFÍA</h3>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-bottom: 40px; text-align: left;">
+            
+            <div style="flex: 1; min-width: 250px; max-width: 350px;">
+                <h4 style="color: #fff; margin-bottom: 10px; font-family: 'Playfair Display', serif; border-bottom: 1px solid #333; padding-bottom: 10px;">
+                    <i class="fas fa-map-marker-alt" style="color: var(--gold-primary); margin-right: 8px;"></i> Zona Azul
+                </h4>
+                <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 15px;">
+                    Cto. Economistas Mz 009 Lote F-2,<br>Cd. Satélite.
+                </p>
+                <a href="https://www.google.com/maps/place/19.5064745,-99.2462345" target="_blank" style="color: var(--gold-primary); font-size: 0.8rem; font-weight: bold; text-decoration: underline;">
+                    Ver en Mapa &rarr;
+                </a>
+            </div>
+
+            <div style="flex: 1; min-width: 250px; max-width: 350px;">
+                <h4 style="color: #fff; margin-bottom: 10px; font-family: 'Playfair Display', serif; border-bottom: 1px solid #333; padding-bottom: 10px;">
+                    <i class="fas fa-map-marker-alt" style="color: var(--gold-primary); margin-right: 8px;"></i> San Lucas
+                </h4>
+                <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 15px;">
+                    Cto. Circunvalación Pte. 15,<br>Cd. Satélite.
+                </p>
+                <a href="https://goo.gl/maps/TU_LINK_MAPS_CIRCUNVALACION" target="_blank" style="color: var(--gold-primary); font-size: 0.8rem; font-weight: bold; text-decoration: underline;">
+                    Ver en Mapa &rarr;
+                </a>
+            </div>
+
+        </div>
+
+        <div style="border-top: 1px solid #222; padding-top: 30px;">
+            <a href="https://www.instagram.com/disofia.panaderia/" target="_blank" style="color: #fff; font-size: 1.5rem; margin: 0 10px; transition: 0.3s;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='#fff'">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/525656238384" target="_blank" style="color: #fff; font-size: 1.5rem; margin: 0 10px; transition: 0.3s;" onmouseover="this.style.color='#25d366'" onmouseout="this.style.color='#fff'">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <br><br>
+            <p style="font-size: 0.8rem; color: #555;">&copy; 2026 Grupo Luimar's</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5534938396?text=Hola%20DiSofia,%20quisiera%20información%20sobre%20sus%20panes%20y%20pasteles." target="_blank" class="whatsapp-float-disofia">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <style>
+        .whatsapp-float-disofia {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366; /* El verde de WhatsApp es mejor mantenerlo para reconocimiento */
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            border: 2px solid #D4AF37; /* Borde DORADO para identidad Di Sofia */
+        }
+
+        .whatsapp-float-disofia:hover {
+            transform: scale(1.1);
+            background-color: #1ebd59;
+        }
+    </style>
+</body>
+</html>

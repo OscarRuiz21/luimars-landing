@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Luimar's | Restaurante & Panadería</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- PALETA DE COLORES INTELIGENTE --- */
+        :root {
+            --bg-color: #0f0f0f;      /* Negro Profundo */
+            --card-bg: #181818;       /* Gris muy oscuro */
+            
+            /* IDENTIDAD LUIMAR'S (ROJO) */
+            --luimars-red: #E62429;     
+            
+            /* IDENTIDAD DI'SOFÍA (DORADO) */
+            --disofia-gold: #D4AF37;  
+            
+            --text-white: #ffffff;
+            --text-gray: #b3b3b3;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        a { text-decoration: none; transition: 0.3s; color: inherit; }
+
+        /* --- HEADER CON LOGO --- */
+        header {
+            background: rgba(15, 15, 15, 0.98);
+            padding: 0.8rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--luimars-red);
+        }
+
+        /* Clase especial para tu imagen de Logo */
+        .logo-img {
+            height: auto; /* Ajusta automáticamente la altura según el ancho */
+            width: 150px; /* Define un ancho fijo para que sea rectangular */
+            border-radius: 0; /* Elimina el borde redondeado */
+            border: none; /* Opcional: elimina el borde blanco */
+            object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor sin distorsión */
+        }
+
+        .nav-menu { display: flex; gap: 2rem; align-items: center; }
+        .nav-menu a { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: #fff; letter-spacing: 1px; }
+        .nav-menu a:hover { color: var(--luimars-red); }
+        
+        /* Botón especial del menú para la panadería */
+        .btn-nav-gold {
+            border: 1px solid var(--disofia-gold);
+            padding: 8px 20px;
+            color: var(--disofia-gold) !important;
+            border-radius: 20px;
+        }
+        .btn-nav-gold:hover { background: var(--disofia-gold); color: #000 !important; }
+
+        /* --- HERO SECTION (Restaurante) --- */
+        .hero {
+            height: 90vh;
+            /* FOTO DE FONDO: Te recomiendo una foto oscura de tus cortes o sushi */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(15,15,15,1)), url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            margin-top: 60px;
+        }
+
+        .hero h1 { font-size: 3.8rem; margin-bottom: 0.5rem; line-height: 1.1; }
+        .hero p { font-size: 1.2rem; color: #ddd; margin-bottom: 2rem; font-weight: 300; }
+        
+        .btn-red {
+            padding: 15px 45px;
+            background: var(--luimars-red);
+            color: #fff;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(230, 36, 41, 0.4);
+        }
+        .btn-red:hover { transform: scale(1.05); }
+
+        /* --- HIGHLIGHTS BAR (Estilo Instagram) --- */
+        .highlights-bar {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            background: #121212;
+            margin-top: -50px; /* Efecto visual para subirlo */
+            position: relative;
+            z-index: 10;
+        }
+        
+        .highlight-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; width: 80px; }
+        .highlight-circle {
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            background: var(--luimars-red);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; color: white;
+            margin-bottom: 10px;
+            border: 3px solid #1a1a1a;
+            box-shadow: 0 0 0 2px var(--luimars-red);
+            transition: 0.3s;
+        }
+        .highlight-item:hover .highlight-circle { transform: scale(1.1); }
+        .highlight-text { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+
+        /* --- SECCIÓN DISOFÍA (CROSSOVER) --- */
+        .bakery-section {
+            background: #000;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 500px;
+        }
+
+        .bakery-info {
+            flex: 1;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 300px;
+            border-left: 5px solid var(--disofia-gold); /* Detalle dorado a la izquierda */
+        }
+
+        .bakery-image {
+            flex: 1;
+            min-width: 300px;
+            /* Aquí pon una foto de las Roscas o Pan */
+            background: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'); 
+            background-size: cover;
+            background-position: center;
+        }
+
+        .disofia-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--disofia-gold); /* Color dorado de la marca */
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-gold {
+            padding: 12px 35px;
+            background: transparent;
+            color: var(--disofia-gold);
+            border: 2px solid var(--disofia-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2rem;
+            display: inline-block;
+            width: fit-content;
+        }
+        .btn-gold:hover { background: var(--disofia-gold); color: #000; }
+
+        /* --- MENÚ GRID --- */
+        .menu-section { padding: 5rem 5%; background: var(--bg-color); }
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        .section-title h2 { font-size: 2.5rem; color: #fff; }
+        .section-title span { color: var(--luimars-red); }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .food-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
+        .food-img { height: 250px; background-size: cover; background-position: center; }
+        .food-info { padding: 1.5rem; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #050505;
+            padding: 4rem 5%;
+            text-align: center;
+            border-top: 2px solid #222;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; } /* En producción necesitarás un script para menú móvil */
+            .hero h1 { font-size: 2.5rem; }
+            .bakery-section { flex-direction: column-reverse; } /* Imagen arriba en móvil */
+            .bakery-info { padding: 3rem 2rem; text-align: center; border-left: none; border-top: 5px solid var(--disofia-gold); }
+            .btn-gold { margin: 2rem auto 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#">
+            <img src="img/logo-luimars.png" alt="Luimar's Restaurante Logo" class="logo-img">
+        </a>
+
+        <nav class="nav-menu">
+            <a href="#">Inicio</a>
+            <a href="#menu">Menú</a>
+            <a href="#ubicacion">Ubicación</a>
+            <a href="#reservar" style="color: var(--brand-red);">Reservar</a>
+            <a href="index3.html" class="btn-nav-gold">Ir a Di'Sofía</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>LuiMar's</h2>
+        <h1>Una opción para<br>cada paladar</h1>
+        <p>Desayunos, Comidas y Cenas <br>en Cd. Satélite.</p>
+        <a href="#menu" class="btn-red">Ver Menú Digital</a>
+    </section>
+
+    <section class="highlights-bar">
+        <div class="highlight-item">
+            <div class="highlight-circle"><i class="far fa-clock"></i></div>
+            <span class="highlight-text">Horario</span>
+        </div>
+        <div class="highlight-item">
+            <div class="highlight-circle"><i class="fas fa-map-marker-alt"></i></div>
+            <span class="highlight-text">Ubicación</span>
+        </div>
+        <div class="highlight-item">
+            <div class="highlight-circle"><i class="fas fa-sun"></i></div>
+            <span class="highlight-text">Desayunos</span>
+        </div>
+        <div class="highlight-item">
+            <div class="highlight-circle"><i class="fas fa-utensils"></i></div>
+            <span class="highlight-text">Menú</span>
+        </div>
+        <div class="highlight-item">
+            <div class="highlight-circle"><i class="fas fa-fish"></i></div>
+            <span class="highlight-text">Sushi</span>
+        </div>
+    </section>
+
+<section class="menu-section" id="menu">
+        <div class="section-title">
+            <h2>Nuestros <span>Favoritos</span></h2>
+            <p style="color: #999;">Lo más pedido en Luimar's Restaurante</p>
+        </div>
+
+        <div class="menu-grid">
+            
+            <div class="food-card">
+                <div class="food-img" style="background-image: url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="food-info">
+                    <span class="food-cat">Barra Japonesa</span>
+                    <h3 class="food-title">Sushi Inigualable</h3>
+                    <p class="food-desc">Rollos frescos preparados al momento. La especialidad que nos distingue.</p>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-img" style="background-image: url('https://images.unsplash.com/photo-1546833999-b9f5816029bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="food-info">
+                    <span class="food-cat">Cortes & Grill</span>
+                    <h3 class="food-title">Arrachera Premium</h3>
+                    <p class="food-desc">Jugosos cortes de carne seleccionada acompañados de guarniciones clásicas.</p>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-img" style="background-image: url('../img/hamburguesa.jpg');"></div>
+                <div class="food-info">
+                    <span class="food-cat">Luimars Burgers</span>
+                    <h3 class="food-title">Hamburguesas que Impactan</h3>
+                    <p class="food-desc">Carne de res 100%, queso fundido y pan artesanal. Tienes que probarlas.</p>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-img" style="background-image: url('../img/pulpo.jpg');"></div>
+                <div class="food-info">
+                    <span class="food-cat">Tradición</span>
+                    <h3 class="food-title">Enmoladas & Desayunos</h3>
+                    <p class="food-desc">La mejor forma de empezar el día con el sazón de casa.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    
+
+    <style>
+        .delivery-section {
+            background: #111; /* Un poco más claro que el fondo negro total */
+            padding: 5rem 5%;
+            border-top: 1px solid #333;
+        }
+
+        .delivery-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- COLUMNA PICK UP (Destacada) --- */
+        .pickup-box {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+            padding: 2.5rem;
+            border: 2px solid var(--luimars-red); /* Borde rojo marca */
+            border-radius: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(230, 36, 41, 0.15);
+        }
+
+        .pickup-title { font-size: 2rem; margin-bottom: 0.5rem; color: #fff; font-family: 'Playfair Display', serif; }
+        .pickup-desc { color: #ccc; margin-bottom: 2rem; font-size: 1rem; }
+        
+        .btn-whatsapp-large {
+            background: #25d366;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: 0.3s;
+        }
+        .btn-whatsapp-large:hover { transform: scale(1.05); background: #1ebd59; }
+
+        /* --- COLUMNA APPS --- */
+        .apps-box {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .apps-title { font-size: 1.8rem; margin-bottom: 2rem; color: #fff; text-align: center; }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .app-btn {
+            background: #222;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+        }
+        .app-btn:hover { background: #333; transform: translateY(-5px); }
+
+        .app-logo { font-size: 2rem; margin-bottom: 5px; }
+
+        /* Colores específicos de marcas */
+        .rappi-color { color: #ff5545; }
+        .uber-color { color: #06C167; }
+        .didi-color { color: #ff7d00; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .delivery-container { flex-direction: column; gap: 2rem; }
+            .pickup-box { padding: 2rem 1.5rem; }
+        }
+    </style>
+
+    <section class="delivery-section" id="pedidos">
+        <div class="delivery-container">
+            
+            <div class="pickup-box">
+                <h2 class="pickup-title">Pick Up & Take Out</h2>
+                <p class="pickup-desc">
+                    ¿Estás cerca de Cd. Satélite? <br>
+                    Haz tu pedido por WhatsApp y pasa a recogerlo. <br>
+                    <span style="color: var(--luimars-red); font-weight: bold;">Sin comisiones de apps.</span>
+                </p>
+                
+                <a href="https://wa.me/5534938396?text=Hola,%20quisiera%20hacer%20un%20pedido%20para%20pasar%20a%20recoger" target="_blank" class="btn-whatsapp-large">
+                    <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                </a>
+            </div>
+
+            <div class="apps-box">
+                <h2 class="apps-title">Llegamos hasta tu puerta</h2>
+                <div class="apps-grid">
+                    
+                    <a href="https://www.rappi.com.mx/restaurantes/1306704665-luimars-mexico" target="_blank" class="app-btn">
+                        <i class="fas fa-motorcycle app-logo rappi-color"></i> 
+                        <strong>Rappi</strong>
+                        <span style="font-size: 0.8rem; color: #888;">Ordena aquí</span>
+                    </a>
+
+                    <a href="https://tinyurl.com/y2o5flcf" target="_blank" class="app-btn">
+                        <i class="fas fa-utensils app-logo uber-color"></i>
+                        <strong>Uber Eats</strong>
+                        <span style="font-size: 0.8rem; color: #888;">Ordena aquí</span>
+                    </a>
+
+                    <a href="#" target="_blank" class="app-btn">
+                        <i class="fas fa-hamburger app-logo didi-color"></i>
+                        <strong>DiDi Food</strong>
+                        <span style="font-size: 0.8rem; color: #888;">Ordena aquí</span>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section style="position: relative; padding: 100px 20px; text-align: center; background: url('https://images.unsplash.com/photo-1519671482538-5810a2d70a43?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover; background-attachment: fixed;">
+        
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7);"></div>
+
+        <div style="position: relative; z-index: 2; max-width: 800px; margin: 0 auto;">
+            <span style="color: var(--luimars-red); font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">Celebraciones</span>
+            <h2 style="font-family: 'Playfair Display', serif; color: #fff; font-size: 3rem; margin: 10px 0 20px 0;">¿Tienes algo que festejar?</h2>
+            <p style="color: #ddd; font-size: 1.2rem; margin-bottom: 30px; line-height: 1.6;">
+                Cumpleaños, Aniversarios o Juntas de Negocios.<br>
+                Reserva una mesa para más de 10 personas y nosotros nos encargamos de que sea inolvidable.
+            </p>
+
+            <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 20px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); display: inline-block; margin-bottom: 30px;">
+                <i class="fas fa-birthday-cake" style="color: var(--disofia-gold); font-size: 1.5rem; margin-right: 10px;"></i>
+                <span style="color: #fff;">Pregunta por nuestros paquetes con <strong>Pastel de Di'Sofía</strong> incluido.</span>
+            </div>
+            <br>
+
+            <a href="https://wa.me/5534938396?text=Hola,%20quiero%20cotizar%20un%20evento%20en%20Luimars" target="_blank" style="background-color: var(--luimars-red); color: white; padding: 15px 40px; text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border-radius: 50px; display: inline-block; transition: 0.3s;">
+                Cotizar mi Evento
+            </a>
+        </div>
+    </section>
+
+<section style="padding: 60px 5%; background-color: var(--bg-color); border-top: 1px solid #222; border-bottom: 1px solid #222;">
+        
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 style="font-family: 'Playfair Display', serif; color: #fff; font-size: 2.5rem;">
+                ¡Con tu reseña y follow <span style="color: var(--luimars-red);">podemos seguir creciendo!</span>
+            </h2>
+            <div style="width: 60px; height: 3px; background: var(--luimars-red); margin: 15px auto;"></div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; align-items: center;">
+            
+            <div style="text-align: center; border-right: 1px solid #222; padding-right: 20px;" class="col-left-luimars">
+                <p style="color: #666; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 20px;">
+                    Opiniones Reales
+                </p>
+
+                <div style="background: #111; padding: 30px; border: 1px solid #222; position: relative; border-radius: 10px; margin-bottom: 25px;">
+                    <i class="fas fa-quote-left" style="position: absolute; top: -15px; left: 20px; font-size: 2rem; color: var(--bg-color); text-shadow: 0 0 0 var(--luimars-red);"></i>
+                    
+                    <div style="color: var(--luimars-red); font-size: 1rem; margin-bottom: 10px;">★★★★★</div>
+                    <p style="color: #ddd; font-style: italic; font-size: 1rem; line-height: 1.6;">
+                        "El mejor lugar en Satélite. El sushi es fresco y la arrachera nunca falla. 10/10."
+                    </p>
+                    <p style="font-weight: 700; color: #fff; font-size: 0.75rem; text-transform: uppercase; margin-top: 15px;">
+                        - Cliente en Google
+                    </p>
+                </div>
+
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <a href="TU_LINK_GOOGLE" target="_blank" style="font-size: 0.9rem; color: var(--luimars-red); text-decoration: none; border-bottom: 1px solid var(--luimars-red); transition:0.3s;">
+                        Ver Google Reviews
+                    </a>
+                    <span style="color: #333;">|</span>
+                    <a href="TU_LINK_TRIPADVISOR" target="_blank" style="font-size: 0.9rem; color: #fff; text-decoration: none; border-bottom: 1px solid #fff; transition:0.3s;">
+                        TripAdvisor
+                    </a>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <div style="width: 80px; height: 80px; border: 2px solid var(--luimars-red); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; font-size: 2rem; color: var(--luimars-red); box-shadow: 0 0 15px rgba(230, 36, 41, 0.2);">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                
+                <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 10px;">¡Únete a la comunidad!</h3>
+                <p style="color: #888; margin-bottom: 25px; font-size: 0.95rem; line-height: 1.6;">
+                    Etiquétanos en tus historias y ayúdanos a llegar a más mesas.<br>
+                    Somos 100% Satelucos.
+                </p>
+                
+                <a href="TU_INSTAGRAM" style="display: inline-block; border: 1px solid #fff; color: #fff; padding: 10px 30px; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; transition: 0.3s; border-radius: 50px;">
+                    Seguir @LuimarsRestaurante
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section style="padding: 80px 20px; background-color: #0a0a0a; text-align: center;">
+        <div style="max-width: 800px; margin: 0 auto; border: 2px dashed #333; padding: 50px 30px; border-radius: 15px; position: relative; background: #0f0f0f;">
+            
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 15px; color: #fff;">
+                ¿Quieres <span style="color: var(--luimars-red);">Postre Gratis?</span>
+            </h3>
+            <p style="font-size: 1.1rem; color: #ccc; margin-bottom: 30px;">
+                Ayúdanos a mejorar contestando una encuesta de 1 minuto.<br>
+                Sorteamos un postre cada semana entre los participantes.
+            </p>
+            
+            <a href="LINK_ENCUESTA" style="background-color: var(--luimars-red); color: white; padding: 15px 45px; text-decoration: none; border-radius: 50px; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 5px 20px rgba(230, 36, 41, 0.3);">
+                Participar Ahora
+            </a>
+            <p style="margin-top: 20px; font-size: 0.8rem; color: #555;">*El ganador se anuncia los lunes en Instagram.</p>
+        </div>
+    </section>
+
+    <style>
+        @media (max-width: 768px) {
+            .col-left-luimars {
+                border-right: none !important;
+                border-bottom: 1px solid #222;
+                padding-right: 0 !important;
+                padding-bottom: 40px;
+            }
+        }
+    </style>
+
+    <section class="bakery-section" id="disofia">
+        <div class="bakery-info">
+            <span style="color: #888; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 10px;">Nuestra Hermana Dulce</span>
+            <h2 class="disofia-logo-text">Di'Sofía Panadería</h2>
+            <p style="color: #ccc; font-size: 1.1rem; margin-bottom: 20px; font-style: italic;">
+                "De nuestro horno a tus manos"
+            </p>
+            <p style="color: #999;">
+                Disfruta de nuestras Roscas de Reyes, Galletas artesanales y el mejor pan dulce de Ciudad Satélite.
+            </p>
+            <a href="https://www.instagram.com/disofia.panaderia/" target="_blank" class="btn-gold">
+                Visitar Panadería <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+            </a>
+        </div>
+        <div class="bakery-image">
+            </div>
+    </section>
+
+    <footer id="ubicacion">
+        <h3 style="color: var(--brand-red); margin-bottom: 10px;">LUIMAR'S</h3>
+        <p style="color: #ccc; margin-bottom: 20px;">
+            Circunvalación Poniente F2, Local 5 y 6<br>
+            Cd. Satélite, Naucalpan de Juárez, Edo. Méx.
+        </p>
+        <div class="socials">
+            <a href="https://www.instagram.com/luimarsrestaurante/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/LUIMARSRESTAURANTE"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/5534938396"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <br>
+        <p style="font-size: 0.8rem; color: #555;">&copy; 2026 Luimar's Restaurante</p>
+    </footer>
+<a href="https://wa.me/5534938396?text=Hola%20Luimars,%20quisiera%20hacer%20una%20reservación%20o%20pedido." target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            border: 2px solid white; /* Borde blanco para resaltar en modo oscuro */
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #1ebd59;
+            box-shadow: 0px 5px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Animación de pulso para llamar la atención */
+        @keyframes pulse-green {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        .whatsapp-float {
+            animation: pulse-green 2s infinite;
+        }
+    </style>
+</body>
+
+</html>
