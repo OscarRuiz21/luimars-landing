@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menús Digitales | Luimar's</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --luimars-red: #E62429;
+            --text-white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin: 30px 0;
+            font-size: 2.5rem;
+        }
+
+        /* Botón de regresar */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: #999;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .back-btn:hover { color: var(--luimars-red); }
+
+        /* Grid de Menús (Modificado para 2x2) */
+        .menu-grid {
+            display: grid;
+            /* Aquí forzamos 2 columnas exactas */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 30px; /* Un poco más de espacio entre ellas */
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* IMPORTANTE: En celulares volvemos a 1 columna para que se lea bien */
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .menu-card {
+            background: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #333;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--luimars-red);
+            box-shadow: 0 5px 20px rgba(230, 36, 41, 0.2);
+        }
+
+        .card-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .card-desc {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .icon-overlay {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--luimars-red);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Volver al Inicio
+    </a>
+
+    <h1>Nuestras Cartas</h1>
+
+    <div class="menu-grid">
+        
+        <a href="#" class="menu-card">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1533089862017-5614ec95e214?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="icon-overlay"><i class="fas fa-coffee"></i></div>
+            <div class="card-info">
+                <div class="card-title">Desayunos</div>
+                <div class="card-desc">Huevos, Omelettes, Chilaquiles y Pan Dulce.</div>
+            </div>
+        </a>
+
+        <a href="#" class="menu-card">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1546833999-b9f5816029bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="icon-overlay"><i class="fas fa-drumstick-bite"></i></div>
+            <div class="card-info">
+                <div class="card-title">Comidas & Cortes</div>
+                <div class="card-desc">Arracheras, Hamburguesas, Sopas y Ensaladas.</div>
+            </div>
+        </a>
+
+        <a href="#" class="menu-card">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="icon-overlay"><i class="fas fa-fish"></i></div>
+            <div class="card-info">
+                <div class="card-title">Barra Japonesa</div>
+                <div class="card-desc">Rollos, Nigiris, Sashimis y Yakimeshis.</div>
+            </div>
+        </a>
+
+        <a href="#" class="menu-card">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="icon-overlay"><i class="fas fa-glass-martini-alt"></i></div>
+            <div class="card-info">
+                <div class="card-title">Bebidas & Cocteles</div>
+                <div class="card-desc">Cervezas, Vinos, Mixología y Refrescos.</div>
+            </div>
+        </a>
+
+    </div>
+
+    <p style="text-align: center; color: #666; margin-top: 40px; font-size: 0.8rem;">
+        *Precios sujetos a cambio sin previo aviso.
+    </p>
+
+</body>
+</html>
