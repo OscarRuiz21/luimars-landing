@@ -6,7 +6,7 @@
     <title>Di'Sofía | Panadería Artesanal & Repostería</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         /* --- PALETA DE COLORES DI'SOFÍA --- */
         :root {
@@ -352,43 +352,131 @@
             <p>Hechos diariamente con mantequilla 100% natural e ingredientes selectos.</p>
         </div>
 
-        <div class="products-grid">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('../img/rosca.jpg');"></div>
+                        <div class="product-info">
+                            <span class="product-cat">Temporada</span>
+                            <h3 class="product-name">Roscas de Reyes</h3>
+                            <p class="product-desc">La tradición favorita. Rellena de queso, nuez o natural. ¡Apártala!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('../img/croissant.jpg');"></div>
+                        <div class="product-info">
+                            <span class="product-cat">Hojaldre</span>
+                            <h3 class="product-name">Croissant Artesanal</h3>
+                            <p class="product-desc">Crujiente por fuera, suave por dentro. Perfecto para acompañar tu café.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('../img/galletas.jpg');"></div>
+                        <div class="product-info">
+                            <span class="product-cat">Repostería</span>
+                            <h3 class="product-name">Galletas & Brownies</h3>
+                            <p class="product-desc">Variedad de chocolates, chips y frutos secos. El postre ideal.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('../img/masamadre.jpg');"></div>
+                        <div class="product-info">
+                            <span class="product-cat">Hogaza</span>
+                            <h3 class="product-name">Pan de Masa Madre</h3>
+                            <p class="product-desc">Fermentación natural de 48 horas. Saludable y delicioso.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('../img/pastel.jpg');"></div>
+                        <div class="product-info">
+                            <span class="product-cat">Celebración</span>
+                            <h3 class="product-name">Pasteles Personalizados</h3>
+                            <p class="product-desc">Tu idea hecha pastel. Cotiza para cumpleaños y eventos.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1609189708027-664426e2e542?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="product-info">
-                    <span class="product-cat">Temporada</span>
-                    <h3 class="product-name">Roscas de Reyes</h3>
-                    <p style="color:#888; font-size:0.9rem;">La tradición favorita. Rellena de queso, nuez o natural.</p>
-                </div>
-            </div>
+            <div class="swiper-button-prev" style="color: var(--gold-primary);"></div>
+            <div class="swiper-button-next" style="color: var(--gold-primary);"></div>
+            <div class="swiper-pagination"></div>
+        </div>
 
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1555507036-ab1f40388085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="product-info">
-                    <span class="product-cat">Hojaldre</span>
-                    <h3 class="product-name">Croissant Artesanal</h3>
-                    <p style="color:#888; font-size:0.9rem;">Crujiente por fuera, suave por dentro. Perfecto para acompañar tu café.</p>
-                </div>
-            </div>
+        <style>
+            /* Estilos Específicos para el Carrusel de Di'Sofía */
+            .swiper {
+                width: 100%;
+                padding-bottom: 50px; /* Espacio para los puntitos */
+            }
 
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1499636138143-bd649043ea80?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="product-info">
-                    <span class="product-cat">Repostería</span>
-                    <h3 class="product-name">Galletas & Brownies</h3>
-                    <p style="color:#888; font-size:0.9rem;">Variedad de chocolates, chips y frutos secos.</p>
-                </div>
-            </div>
+            .swiper-slide {
+                height: auto; /* Para que todas las tarjetas se ajusten */
+            }
 
-             <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="product-info">
-                    <span class="product-cat">Hogaza</span>
-                    <h3 class="product-name">Pan de Masa Madre</h3>
-                    <p style="color:#888; font-size:0.9rem;">Fermentación natural. El compañero ideal para tus comidas.</p>
-                </div>
-            </div>
+            /* Ajuste de tarjetas para que se vean igual a las de Luimar's */
+            .product-card {
+                background: var(--card-bg); /* Fondo oscuro */
+                border: 1px solid #333;
+                border-radius: 15px;
+                overflow: hidden;
+                transition: 0.3s;
+                height: 100%; /* Ocupa todo el alto */
+                display: flex;
+                flex-direction: column;
+            }
+
+            .product-card:hover {
+                border-color: var(--gold-primary); /* Borde Dorado al pasar mouse */
+                transform: translateY(-5px);
+            }
+
+            .product-img {
+                height: 250px;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .product-info { padding: 1.5rem; text-align: center; flex-grow: 1; }
+            
+            .product-cat { 
+                color: var(--gold-primary); 
+                font-size: 0.8rem; 
+                text-transform: uppercase; 
+                letter-spacing: 2px; 
+                margin-bottom: 0.5rem; 
+                display: block;
+                font-weight: 700;
+            }
+            
+            .product-name { 
+                font-size: 1.4rem; 
+                margin-bottom: 0.5rem; 
+                font-family: 'Playfair Display', serif; 
+                color: #fff;
+            }
+
+            .product-desc { color: #ccc; font-size: 0.95rem; }
+
+            /* Color de los puntitos de paginación */
+            .swiper-pagination-bullet-active {
+                background-color: var(--gold-primary) !important;
+            }
+        </style>
 
         </div>
     </section>
@@ -604,6 +692,38 @@
 
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true, // Carrusel infinito
+            autoplay: {
+                delay: 3000, // Se mueve solo cada 3 segundos
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            // Cuántas tarjetas se ven según el tamaño de pantalla
+            slidesPerView: 1, // En celular (1 tarjeta)
+            spaceBetween: 20,
+            breakpoints: {
+                640: {
+                    slidesPerView: 2, // Tablet chica (2 tarjetas)
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3, // Computadora (3 tarjetas)
+                    spaceBetween: 30,
+                },
+            },
         });
     </script>
 

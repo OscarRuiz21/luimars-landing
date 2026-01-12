@@ -312,15 +312,15 @@
             <a href="#menu">Menú</a>
             <a href="#ubicacion">Ubicación</a>
             <a href="#reservar" style="color: var(--brand-red);">Reservar</a>
-            <a href="../panaderia/index.html" class="btn-nav-gold">Ir a Di'Sofía</a>
+            <a href="#disofia" class="btn-nav-gold">Ir a Di'Sofía</a>
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="reservar">
         <h2>LuiMar's</h2>
         <h1>Una opción para<br>cada paladar</h1>
-        <p>Desayunos, Comidas y Cenas <br>en Cd. Satélite.</p>
-        <a href="#menu" class="btn-red">Ver Menú Digital</a>
+        <p>Desayunos, Comidas y Cenas <br>en Zona Azul, Cd. Satélite.</p>
+        <a href="https://outlook.office.com/book/ReservacionesLuimars@luimars.com/?ismsaljsauthenabled" class="btn-red">Reservar Ahora</a>
     </section>
 
     <section class="highlights-bar">
@@ -328,28 +328,32 @@
             <div class="highlight-circle"><i class="far fa-clock"></i></div>
             <span class="highlight-text">Horario</span>
         </a>
-        <div class="highlight-item">
+
+        <a href="https://www.google.com/maps/place/LuiMars/@19.5065526,-99.2463179,17z/data=!3m1!4b1!4m6!3m5!1s0x85d2033b3b56aaab:0xad10edb368055857!8m2!3d19.5065526!4d-99.2463179!16s%2Fg%2F11f33fd25_?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D" class="highlight-item" style="text-decoration: none; color: inherit;">
             <div class="highlight-circle"><i class="fas fa-map-marker-alt"></i></div>
             <span class="highlight-text">Ubicación</span>
-        </div>
-        <div class="highlight-item">
-            <div class="highlight-circle"><i class="fas fa-sun"></i></div>
-            <span class="highlight-text">Desayunos</span>
-        </div>
+        </a>
+
+        <a href="promos.html" class="highlight-item" style="text-decoration: none; color: inherit;">
+            <div class="highlight-circle"><i class="fas fa-tag"></i></div>
+            <span class="highlight-text">Promos</span>
+        </a>
+
         <a href="menu.html" class="highlight-item" style="text-decoration: none; color: inherit;">
             <div class="highlight-circle"><i class="fas fa-utensils"></i></div>
             <span class="highlight-text">Menú</span>
         </a>
-        <div class="highlight-item">
-            <div class="highlight-circle"><i class="fas fa-fish"></i></div>
-            <span class="highlight-text">Sushi</span>
-        </div>
+
+        <a href="#comunidad" class="highlight-item" style="text-decoration: none; color: inherit;">
+            <div class="highlight-circle"><i class="fab fa-instagram"></i></div>
+            <span class="highlight-text">Comunidad</span>
+        </a>
     </section>
 
     <section class="menu-section" id="menu">
         <div class="section-title">
             <h2>Nuestros <span>Favoritos</span></h2>
-            <p style="color: #999;">Lo más pedido en Luimar's Restaurante</p>
+            <p style="color: #999;">Lo más pedido en LuiMar's Restaurante</p>
         </div>
 
         <!-- Swiper Container -->
@@ -358,7 +362,17 @@
                 <!-- Slide 1 -->
                 <div class="swiper-slide">
                     <div class="food-card">
-                        <div class="food-img" style="background-image: url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                        <div class="food-img" style="background-image: url('../img/benedictinos.jpg');"></div>
+                        <div class="food-info">
+                            <span class="food-cat">Toque Gourmet</span>
+                            <h3 class="food-title">Brunch Internacional</h3>
+                            <p class="food-desc">Desde Benedictinos hasta opciones ligeras. Sofisticación para paladares que buscan algo más.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="food-card">
+                        <div class="food-img" style="background-image: url('../img/sushi.jpg'); background-position-y: 25%;"></div>
                         <div class="food-info">
                             <span class="food-cat">Barra Japonesa</span>
                             <h3 class="food-title">Sushi Inigualable</h3>
@@ -366,17 +380,18 @@
                         </div>
                     </div>
                 </div>
-                <!-- Slide 2 -->
                 <div class="swiper-slide">
                     <div class="food-card">
-                        <div class="food-img" style="background-image: url('../img/Cecinaa.jpg');"></div>
+                        <div class="food-img" style="background-image: url('../img/pasta-mariscos.jpg');"></div>
                         <div class="food-info">
-                            <span class="food-cat">Cortes & Grill</span>
-                            <h3 class="food-title">Arrachera Premium</h3>
-                            <p class="food-desc">Jugosos cortes de carne seleccionada acompañados de guarniciones clásicas.</p>
+                            <span class="food-cat">Fusión Italiana</span>
+                            <h3 class="food-title">Pastas del Mar</h3>
+                            <p class="food-desc">Cremosas, abundantes y con la selección más fresca de mariscos. Un abrazo al paladar.</p>
                         </div>
                     </div>
                 </div>
+                <!-- Slide 2 -->
+
                 <!-- Slide 3 -->
                 <div class="swiper-slide">
                     <div class="food-card">
@@ -391,14 +406,36 @@
                 <!-- Slide 4 -->
                 <div class="swiper-slide">
                     <div class="food-card">
-                        <div class="food-img" style="background-image: url('../img/pulpo.jpg');"></div>
+                        <div class="food-img" style="background-image: url('../img/sopes.jpg'); background-position-y: 25%;"></div>
                         <div class="food-info">
-                            <span class="food-cat">Tradición</span>
-                            <h3 class="food-title">Enmoladas & Desayunos</h3>
-                            <p class="food-desc">La mejor forma de empezar el día con el sazón de casa.</p>
+                            <span class="food-cat">Sazón de Hogar</span>
+                            <h3 class="food-title">Tradición Mexicana</h3>
+                            <p class="food-desc">Sopes hechos a mano, chilaquiles y antojitos. La mejor forma de decir "Buenos días".</p>
                         </div>
                     </div>
                 </div>
+
+                <div class="swiper-slide">
+                    <div class="food-card">
+                        <div class="food-img" style="background-image: url('../img/pulpo.jpg');"></div>
+                        <div class="food-info">
+                            <span class="food-cat">Tesoros del Mar</span>
+                            <h3 class="food-title">Barra Fría & Grill</h3>
+                            <p class="food-desc">Aguachiles vibrantes, ceviches y pulpo zarandeado. Frescura total en tu mesa.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="food-card">
+                        <div class="food-img" style="background-image: url('../img/Cecinaa.jpg');"></div>
+                        <div class="food-info">
+                            <span class="food-cat">Cortes & Grill</span>
+                            <h3 class="food-title">Arrachera & Cecina Premium</h3>
+                            <p class="food-desc">Jugosos cortes de carne seleccionada acompañados de guarniciones clásicas.</p>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
             <!-- Swiper Pagination -->
             <div class="swiper-pagination"></div>
@@ -645,7 +682,7 @@
         </div>
     </section>
 
-<section style="padding: 60px 5%; background-color: var(--bg-color); border-top: 1px solid #222; border-bottom: 1px solid #222;">
+    <section style="padding: 60px 5%; background-color: var(--bg-color); border-top: 1px solid #222; border-bottom: 1px solid #222;" id="comunidad">
         
         <div style="text-align: center; margin-bottom: 50px;">
             <h2 style="font-family: 'Playfair Display', serif; color: #fff; font-size: 2.5rem;">
@@ -674,11 +711,11 @@
                 </div>
 
                 <div style="display: flex; gap: 15px; justify-content: center;">
-                    <a href="TU_LINK_GOOGLE" target="_blank" style="font-size: 0.9rem; color: var(--luimars-red); text-decoration: none; border-bottom: 1px solid var(--luimars-red); transition:0.3s;">
+                    <a href="https://g.page/r/CVdYBWiz7RCtEAI/review" target="_blank" style="font-size: 0.9rem; color: var(--luimars-red); text-decoration: none; border-bottom: 1px solid var(--luimars-red); transition:0.3s;">
                         Ver Google Reviews
                     </a>
                     <span style="color: #333;">|</span>
-                    <a href="TU_LINK_TRIPADVISOR" target="_blank" style="font-size: 0.9rem; color: #fff; text-decoration: none; border-bottom: 1px solid #fff; transition:0.3s;">
+                    <a href="https://www.tripadvisor.com.mx/Restaurant_Review-g11807337-d13436734-Reviews-Luimar_s-Ciudad_Satelite_Central_Mexico_and_Gulf_Coast.html?m=69573" target="_blank" style="font-size: 0.9rem; color: #fff; text-decoration: none; border-bottom: 1px solid #fff; transition:0.3s;">
                         TripAdvisor
                     </a>
                 </div>
@@ -689,13 +726,13 @@
                     <i class="fab fa-instagram"></i>
                 </div>
                 
-                <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 10px;">¡Únete a la comunidad!</h3>
+                <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 10px; ">¡Únete a la comunidad! </h3>
                 <p style="color: #888; margin-bottom: 25px; font-size: 0.95rem; line-height: 1.6;">
                     Etiquétanos en tus historias y ayúdanos a llegar a más mesas.<br>
                     Somos 100% Satelucos.
                 </p>
                 
-                <a href="TU_INSTAGRAM" style="display: inline-block; border: 1px solid #fff; color: #fff; padding: 10px 30px; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; transition: 0.3s; border-radius: 50px;">
+                <a href="https://www.instagram.com/luimarsrestaurante/" style="display: inline-block; border: 1px solid #fff; color: #fff; padding: 10px 30px; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; transition: 0.3s; border-radius: 50px;">
                     Seguir @LuimarsRestaurante
                 </a>
             </div>
@@ -714,7 +751,7 @@
                 Sorteamos un postre cada semana entre los participantes.
             </p>
             
-            <a href="LINK_ENCUESTA" style="background-color: var(--luimars-red); color: white; padding: 15px 45px; text-decoration: none; border-radius: 50px; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 5px 20px rgba(230, 36, 41, 0.3);">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1v69YxkMTZz4_MB1aZufBOeLP0YDImGnFi-fqN5hexgGGGQ/viewform?usp=header" style="background-color: var(--luimars-red); color: white; padding: 15px 45px; text-decoration: none; border-radius: 50px; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 5px 20px rgba(230, 36, 41, 0.3);">
                 Participar Ahora
             </a>
             <p style="margin-top: 20px; font-size: 0.8rem; color: #555;">*El ganador se anuncia los lunes en Instagram.</p>
@@ -740,9 +777,9 @@
                 "De nuestro horno a tus manos"
             </p>
             <p style="color: #999;">
-                Disfruta de nuestras Roscas de Reyes, Galletas artesanales y el mejor pan dulce de Ciudad Satélite.
+                Disfruta de nuestros Pasteles, Galletas artesanales y el mejor pan dulce de Ciudad Satélite.
             </p>
-            <a href="https://www.instagram.com/disofia.panaderia/" target="_blank" class="btn-gold">
+            <a href="../panaderia/index.html" target="_blank" class="btn-gold">
                 Visitar Panadería <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
             </a>
         </div>
@@ -751,7 +788,9 @@
     </section>
 
     <footer id="ubicacion">
-        <h3 style="color: var(--brand-red); margin-bottom: 10px;">LUIMAR'S</h3>
+        <h3 style="color: var(--brand-red); margin-bottom: 10px;">LuiMar's</h3>
+        <h5 style="color: var(--brand-red); margin-bottom: 10px;">Zona Azul</h5>
+
         <p style="color: #ccc; margin-bottom: 20px;">
             Circunvalación Poniente F2, Local 5 y 6<br>
             Cd. Satélite, Naucalpan de Juárez, Edo. Méx.
@@ -762,11 +801,11 @@
             <a href="https://wa.me/5534938396"><i class="fab fa-whatsapp"></i></a>
         </div>
         <br>
-        <p style="font-size: 0.8rem; color: #555;">&copy; 2026 Luimar's Restaurante</p>
+        <p style="font-size: 0.8rem; color: #555;">&copy; 2026 Grupo LuiMars</p>
     </footer>
-<a href="https://wa.me/5534938396?text=Hola%20Luimars,%20quisiera%20hacer%20una%20reservación%20o%20pedido." target="_blank" class="whatsapp-float">
-    <i class="fab fa-whatsapp"></i>
-</a>
+    <a href="https://wa.me/5534938396?text=Hola%20Luimars,%20quisiera%20hacer%20una%20reservación%20o%20pedido." target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <style>
         .whatsapp-float {

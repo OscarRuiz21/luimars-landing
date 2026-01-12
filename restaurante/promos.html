@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promociones Vigentes | Luimar's</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --luimars-red: #E62429;
+            --text-white: #ffffff;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: #999;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            float: left;
+        }
+        .back-btn:hover { color: var(--luimars-red); }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            clear: both;
+            padding-top: 20px;
+        }
+        
+        .subtitle { color: #888; margin-bottom: 40px; }
+
+        /* GRID DE PROMOS */
+        .promo-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .promo-card {
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 20px;
+            padding: 30px 20px;
+            position: relative;
+            transition: 0.3s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Efecto Hover */
+        .promo-card:hover {
+            border-color: var(--luimars-red);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(230, 36, 41, 0.2);
+        }
+
+        /* Etiqueta de "Vigente" */
+        .tag-status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #222;
+            color: #ccc;
+            font-size: 0.7rem;
+            padding: 5px 12px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .promo-card:hover .tag-status {
+            background: var(--luimars-red);
+            color: white;
+        }
+
+        .promo-icon {
+            font-size: 3rem;
+            color: var(--luimars-red);
+            margin-bottom: 20px;
+        }
+
+        .promo-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .promo-desc {
+            font-size: 1rem;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        .promo-time {
+            margin-top: 15px;
+            font-weight: 700;
+            color: var(--luimars-red);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Volver
+    </a>
+
+    <h1>Promociones</h1>
+    <p class="subtitle">Aprovecha nuestras ofertas especiales de temporada.</p>
+
+    <div class="promo-container">
+
+        <div class="promo-card">
+            <span class="tag-status">Vigente</span>
+            <i class="fas fa-fish promo-icon"></i>
+            <h2 class="promo-title">Sushi 2x1</h2>
+            <p class="promo-desc">Disfruta de nuestros rollos clásicos y especiales al doble.</p>
+            <div class="promo-time">A partir de las 5:00 PM</div>
+        </div>
+
+        <div class="promo-card">
+            <span class="tag-status">Vigente</span>
+            <i class="fas fa-glass-champagne promo-icon"></i>
+            <h2 class="promo-title">Mimosas 2x1</h2>
+            <p class="promo-desc">El acompañante perfecto para tu desayuno o brunch.</p>
+            <div class="promo-time">Todo el día</div>
+        </div>
+
+        <div class="promo-card">
+            <span class="tag-status">Por tiempo limitado</span>
+            <i class="fas fa-cocktail promo-icon"></i>
+            <h2 class="promo-title">Coctelería 3x2</h2>
+            <p class="promo-desc">Pide 3 cocteles de la casa y paga solo 2.</p>
+            <div class="promo-time">Todo el día (Por el momento)</div>
+        </div>
+
+    </div>
+
+    <p style="margin-top: 50px; font-size: 0.8rem; color: #555;">
+        *Aplican restricciones. Válido solo consumo en restaurante.
+    </p>
+
+</body>
+</html>
