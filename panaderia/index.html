@@ -289,6 +289,18 @@
             /* Delivery en columna */
             .delivery-container { flex-direction: column; gap: 2rem; }
             .pickup-box { padding: 2rem 1.5rem; }
+            .btn-gold {
+                padding: 10px 20px; /* Reduce el tamaño del botón */
+                font-size: 0.8rem; /* Ajusta el tamaño del texto */
+                white-space: normal; /* Permite que el texto se divida en varias líneas si es necesario */
+                text-align: center; /* Centra el texto */
+            }
+
+            .btn-gold-container {
+                display: flex;
+                justify-content: center; /* Centra el botón horizontalmente */
+                padding: 0 10px; /* Agrega espacio alrededor del botón */
+            }
         }
 
         /* Ocultar botón hamburguesa en computadora */
@@ -306,7 +318,7 @@
 
     <header>
         <a href="#">
-            <img src="../img/disofia-logo.png" alt="Di Sofia Logo" class="logo-img">
+            <img src="../img/disofia-logo-2.png" alt="Di Sofia Logo" class="logo-img">
         </a>
 
         <div class="menu-toggle" id="mobile-menu">
@@ -317,13 +329,14 @@
             <a href="#">Inicio</a>
             <a href="#productos">Panadería</a>
             <a href="#temporada">Temporada</a>
-            <a href="../restaurante/index.html" class="btn-nav-red">Ir a Luimar's</a>
+            <a href="#luimars" class="btn-nav-red">Ir a Luimar's</a>
         </nav>
     </header>
 
     <section class="hero">
         <h1>Di'Sofía</h1>
         <p>"De nuestro horno a tus manos"</p>
+        <h2>El mejor Pan <br>en Cd. Satélite.</h2>
         <a href="#productos" class="btn-gold">Ver Pan Fresco</a>
     </section>
 
@@ -355,20 +368,56 @@
         <div class="swiper">
             <div class="swiper-wrapper">
                 
+                
+                
+
                 <div class="swiper-slide">
                     <div class="product-card">
-                        <div class="product-img" style="background-image: url('../img/rosca.jpg');"></div>
+                        <div class="product-img" style="background-image: url('../img/mano.jpg');"></div>
                         <div class="product-info">
-                            <span class="product-cat">Temporada</span>
-                            <h3 class="product-name">Roscas de Reyes</h3>
-                            <p class="product-desc">La tradición favorita. Rellena de queso, nuez o natural. ¡Apártala!</p>
+                            <span class="product-cat">Clásicos del Corazón</span>
+                            <h3 class="product-name">Roles Glaseados</h3>
+                            <p class="product-desc">Masa suave, canela aromática y nuestro glaseado especial. El abrazo dulce y reconfortante que necesitas hoy.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
                     <div class="product-card">
-                        <div class="product-img" style="background-image: url('../img/croissant.jpg');"></div>
+                        <div class="product-img" style="background-image: url('../img/conchas.jpg'); background-position-y: 20%;"></div>
+                        <div class="product-info">
+                            <span class="product-cat">Dulce Tradición</span>
+                            <h3 class="product-name">Nubes de Azúcar</h3>
+                            <p class="product-desc">Concha extra suave con esa costra crujiente de vainilla o chocolate que enamora. El clásico que no puede faltar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('../img/bolillo.jpg'); background-position-y: 30%;"></div>
+                        <div class="product-info">
+                            <span class="product-cat">Pan de Mesa</span>
+                            <h3 class="product-name">Bolillo Calientito</h3>
+                            <p class="product-desc">Dorado y crujiente por fuera, suave por dentro. Horneado durante todo el día para que siempre te toque fresco.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('../img/daneses.jpeg'); ; background-position-y: 70%;"></div>
+                        <div class="product-info">
+                            <span class="product-cat">Internacionales</span>
+                            <h3 class="product-name">NewYork Roll</h3>
+                            <p class="product-desc">Capas finas y ultra crujientes con un toque de fruta o crema. Un bocado gourmet que te transporta directo a Europa.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('../img/croissant.jpeg'); background-position-y: 35%;"></div>
                         <div class="product-info">
                             <span class="product-cat">Hojaldre</span>
                             <h3 class="product-name">Croissant Artesanal</h3>
@@ -379,7 +428,18 @@
 
                 <div class="swiper-slide">
                     <div class="product-card">
-                        <div class="product-img" style="background-image: url('../img/galletas.jpg');"></div>
+                        <div class="product-img" style="background-image: url('../img/vitrina2.png');"></div>
+                        <div class="product-info">
+                            <span class="product-cat">Vitrina de Antojos</span>
+                            <h3 class="product-name">Clásicos Mexicanos</h3>
+                            <p class="product-desc">Orejas, moños, banderillas y más. El surtido recién horneado perfecto para chopear con chocolate caliente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('../img/galletasBrownie.jpg');"></div>
                         <div class="product-info">
                             <span class="product-cat">Repostería</span>
                             <h3 class="product-name">Galletas & Brownies</h3>
@@ -387,10 +447,33 @@
                         </div>
                     </div>
                 </div>
-
+                <!--
                 <div class="swiper-slide">
                     <div class="product-card">
-                        <div class="product-img" style="background-image: url('../img/masamadre.jpg');"></div>
+                        <div class="product-img" style="background-image: url('../img/mano.jpg');"></div>
+                        <div class="product-info">
+                            <span class="product-cat">Temporada</span>
+                            <h3 class="product-name">Roscas de Reyes</h3>
+                            <p class="product-desc">La tradición favorita. Rellena de queso, nuez o natural. ¡Apártala!</p>
+                        </div>
+                    </div>
+                </div>
+                -->
+                <!--
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('../img/panmini.jpeg');"></div>
+                        <div class="product-info">
+                            <span class="product-cat">Catering & Eventos</span>
+                            <h3 class="product-name">Charolas Mini</h3>
+                            <p class="product-desc">La misma calidad Di'Sofía en tamaño bocado. La opción elegante para consentir a tus invitados en reuniones y fiestas.</p>
+                        </div>
+                    </div>
+                </div>
+                -->
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('../img/masamadre.jpg'); background-position-y: 60%;"></div>
                         <div class="product-info">
                             <span class="product-cat">Hogaza</span>
                             <h3 class="product-name">Pan de Masa Madre</h3>
@@ -401,7 +484,7 @@
 
                 <div class="swiper-slide">
                     <div class="product-card">
-                        <div class="product-img" style="background-image: url('../img/pastel.jpg');"></div>
+                        <div class="product-img" style="background-image: url('../img/pastel.png');"></div>
                         <div class="product-info">
                             <span class="product-cat">Celebración</span>
                             <h3 class="product-name">Pasteles Personalizados</h3>
@@ -495,14 +578,16 @@
                 <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--gold-primary); margin-right: 10px;"></i> Box Lunch Corporativo</li>
             </ul>
             
-            <a href="https://wa.me/5534938396?text=Hola%20DiSofia,%20me%20interesa%20una%20cotización%20para%20evento." class="btn-gold">
-                Solicitar Catálogo de Eventos
-            </a>
+            <div class="btn-gold-container">
+                <a href="https://wa.me/5534938396?text=Hola%20DiSofia,%20me%20interesa%20una%20cotización%20para%20evento." class="btn-gold">
+                    Solicitar Catálogo de Eventos
+                </a>
+            </div>
         </div>
 
         <div style="flex: 1; min-width: 300px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
-            <div style="height: 200px; background: url('https://images.unsplash.com/photo-1557308536-ee471ef2c39a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80') center/cover; border-radius: 10px;"></div>
-            <div style="height: 200px; background: url('https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80') center/cover; border-radius: 10px; margin-top: 30px;"></div>
+            <div style="height: 200px; background: url('../img/pastel2.png') center/cover; border-radius: 10px; background-position-y:45%;"></div>
+            <div style="height: 200px; background: url('../img/pastelZanahoria.png') center/cover; border-radius: 10px; margin-top: 30px;"></div>
         </div>
 
     </section>
@@ -534,8 +619,12 @@
                     </p>
                 </div>
 
-                <a href="TU_LINK_DE_GOOGLE_AQUI" target="_blank" style="font-size: 0.9rem; color: var(--gold-primary); text-decoration: none; border-bottom: 1px solid var(--gold-primary); padding-bottom: 2px; transition:0.3s;">
-                    Leer más o Escribir Reseña &rarr;
+                <a href="https://g.page/r/CZuCUHqhLUhhEAE/review" target="_blank" style="font-size: 0.9rem; color: var(--gold-primary); text-decoration: none; border-bottom: 1px solid var(--gold-primary); padding-bottom: 2px; transition:0.3s;">
+                    Compartir reseña en Zona Azul &rarr;
+                </a>
+                <br>
+                <a href="https://maps.app.goo.gl/f3QareJLr2wwHYoK8" target="_blank" style="font-size: 0.9rem; color: var(--gold-primary); text-decoration: none; border-bottom: 1px solid var(--gold-primary); padding-bottom: 2px; transition:0.3s;">
+                    Compartir reseña en San Lucas &rarr;
                 </a>
             </div>
 
@@ -549,7 +638,7 @@
                     Síguenos para enterarte en tiempo real cuando salen las conchas calientes del horno.
                 </p>
                 
-                <a href="TU_LINK_INSTAGRAM" style="display: inline-block; border: 1px solid #fff; color: #fff; padding: 10px 30px; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; transition: 0.3s; border-radius: 50px;">
+                <a href="https://www.instagram.com/disofia.panaderia/" style="display: inline-block; border: 1px solid #fff; color: #fff; padding: 10px 30px; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; transition: 0.3s; border-radius: 50px;">
                     Seguir @DiSofiaPanaderia
                 </a>
             </div>
@@ -568,6 +657,7 @@
         }
     </style>
 
+    <!--
     <section style="padding: 80px 20px; background-color: var(--bg-color); text-align: center;">
         <div style="max-width: 700px; margin: 0 auto; border: 1px solid var(--gold-primary); padding: 50px 30px; position: relative; background: linear-gradient(to bottom, #111, #0a0a0a);">
             
@@ -588,25 +678,30 @@
             </a>
         </div>
     </section>
+    -->
 
-    <section class="luimars-section">
+    <section class="luimars-section" id="luimars">
         <div class="luimars-bg"></div> <div class="luimars-content">
             <div class="luimars-text">
                 <span style="color: #fff; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">¿Hambre de algo más fuerte?</span>
-                <div class="luimars-brand">LuiMar<span>'s</span></div>
+                <span style="color: var(--luimars-red); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;"></span>
+                <div class="luimars-brand" style="color: var(--luimars-red);">
+                    Lui<span style="color: #fff;">Mar's</span>
+                </div>
+
                 
                 <h3 style="color: #ccc; font-size: 1.5rem; margin-bottom: 20px;">Restaurante & Sushi Bar</h3>
                 <p style="color: #999; max-width: 500px;">
-                    Cruza la calle y disfruta de nuestros famosos desayunos, cortes de carne premium y la mejor barra de sushi de Satélite.
+                    Detrás de nosotros disfruta de nuestros famosos desayunos, cortes de carne premium y la mejor barra de sushi de Satélite.
                 </p>
                 
-                <a href="index.html" class="btn-red-outline">
+                <a href="../restaurante/index.html" class="btn-red-outline">
                     Ir al Restaurante <i class="fas fa-utensils" style="margin-left: 10px;"></i>
                 </a>
             </div>
             
             <div class="luimars-visual">
-                <i class="fas fa-pepper-hot" style="font-size: 10rem; color: var(--luimars-red); opacity: 0.8;"></i>
+                <i class="fas fa-shrimp" style="font-size: 10rem; color: var(--luimars-red); opacity: 0.8;"></i>
             </div>
         </div>
     </section>
@@ -624,7 +719,7 @@
                 <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 15px;">
                     Cto. Economistas Mz 009 Lote F-2,<br>Cd. Satélite.
                 </p>
-                <a href="https://www.google.com/maps/place/19.5064745,-99.2462345" target="_blank" style="color: var(--gold-primary); font-size: 0.8rem; font-weight: bold; text-decoration: underline;">
+                <a href="https://maps.app.goo.gl/uLWsTBeoVxLFFd8d7" target="_blank" style="color: var(--gold-primary); font-size: 0.8rem; font-weight: bold; text-decoration: underline;">
                     Ver en Mapa &rarr;
                 </a>
             </div>
@@ -636,7 +731,7 @@
                 <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 15px;">
                     Cto. Circunvalación Pte. 15,<br>Cd. Satélite.
                 </p>
-                <a href="https://goo.gl/maps/TU_LINK_MAPS_CIRCUNVALACION" target="_blank" style="color: var(--gold-primary); font-size: 0.8rem; font-weight: bold; text-decoration: underline;">
+                <a href="https://maps.app.goo.gl/xJSU68ysBiHzCMyJ8" target="_blank" style="color: var(--gold-primary); font-size: 0.8rem; font-weight: bold; text-decoration: underline;">
                     Ver en Mapa &rarr;
                 </a>
             </div>
@@ -655,7 +750,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/5534938396?text=Hola%20DiSofia,%20quisiera%20información%20sobre%20sus%20panes%20y%20pasteles." target="_blank" class="whatsapp-float-disofia">
+    <a href="https://wa.me/525656238384?text=Hola%20DiSofia,%20quisiera%20información%20sobre%20sus%20panes%20y%20pasteles." target="_blank" class="whatsapp-float-disofia">
         <i class="fab fa-whatsapp"></i>
     </a>
 
